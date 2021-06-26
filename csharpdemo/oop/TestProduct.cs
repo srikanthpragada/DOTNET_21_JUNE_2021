@@ -18,7 +18,7 @@ namespace csharpdemo.oop
             price = p;
             qoh = 0;
         }
-
+        // Methods 
         public void Print()
         {
             Console.WriteLine($"{name} - {price} - {qoh}");
@@ -34,7 +34,7 @@ namespace csharpdemo.oop
     {
         static void Main(string[] args)
         {
-            Product p1 = new Product("PowerBeats Pro",21500);    // Object 
+            Product p1 = new Product("PowerBeats Pro", 21500);    // Object 
             p1.Purchase(5);
             p1.Purchase(10);
             p1.Print();
