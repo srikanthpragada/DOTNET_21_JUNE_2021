@@ -33,14 +33,29 @@ namespace csharpdemo.oop
         {
             return this.balance;
         }
+
+        // Property 
+        public String HolderName
+        {
+            get
+            {
+                return this.ahname;
+            }
+            set
+            {
+                if (value != "")
+                    this.ahname = value;
+            }
+        }
     }
     class TestAccount
     {
         static void Main(string[] args)
         {
-            Account a = new Account(1, "Mike",20000);
+            Account a = new Account(1, "Mike", 20000);
             a.Deposit(10000);
             Console.WriteLine(a.GetBalance());
+            Console.WriteLine(a.HolderName);  // Get value from property 
         }
     }
 }
