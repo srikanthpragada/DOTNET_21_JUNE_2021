@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharpdemo.library
 {
-    class Person
+    class Person : IComparable<Person>
     {
         public String Name { get; set; }
         public int Age { get; set; }
@@ -21,6 +21,11 @@ namespace csharpdemo.library
             var other = obj as Person;    // Downcasting 
             return this.Name == other.Name && this.Age == other.Age;
         }
+
+        public int CompareTo(Person other)
+        {
+            return this.Age - other.Age; 
+        }
     }
 
     class TestPerson
@@ -34,6 +39,7 @@ namespace csharpdemo.library
             Console.WriteLine(p1.ToString());
             Console.WriteLine(p1 == p2);
             Console.WriteLine(p2.Equals(p3));
+            Console.WriteLine(p1.CompareTo(p2));
 
         }
     }
