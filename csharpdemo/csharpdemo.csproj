@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>csharpdemo.advanced.SearchArrayUsingDelegate</StartupObject>
+    <StartupObject>csharpdemo.advanced.DynamicDemo</StartupObject>
   </PropertyGroup>
 
 </Project>
