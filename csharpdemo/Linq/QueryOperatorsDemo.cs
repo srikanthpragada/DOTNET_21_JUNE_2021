@@ -17,19 +17,22 @@ namespace csharpdemo.Linq
             var books = Book.GetBooks();
 
             // Costly books
-            // var costly_books = books.Where(CostlyBook);
-            var costly_books = books.Where(b => b.Price > 500);
+            var costly_books = books.Where(CostlyBook);
+
+            costly_books = books.Where(b => b.Price > 500);
             foreach (var b in costly_books)
                 Console.WriteLine(b);
             
             // Display books with discounted price 
             var dis_books = books.Where(b => b.Price > 500)     // selection - filtering
                                  .Select(b => new { Title = b.Title, 
+                                                    ActualPrice = b.Price,
                                                     DiscountedPrice = b.Price * 0.80 });  // Projection
 
             foreach (var b in dis_books)
                 Console.WriteLine($"{b.Title.PadRight(20)} - {b.DiscountedPrice}");
             
+           
 
             // Take top 3 books by price 
             var sortedbooks = books.OrderByDescending(b => b.Price)
@@ -46,6 +49,8 @@ namespace csharpdemo.Linq
             // Sum of prices for books on ASP.NET
             Console.WriteLine(books.Where(b => b.Title.Contains("ASP.NET"))
                                    .Sum(b => b.Price));
+
+             
         }
     }
 }
