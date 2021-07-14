@@ -1,0 +1,13 @@
+Steps for Model First Strategy 
+==============================
+
+1. Install required pacakges using NuGet Package Manager
+2. Create an Entity class (Course)
+3. Create Context class that is derived from DbContext  - TrainingContext 
+4. Add DbSet property in Context class  - DbSet<Course> Courses
+5. Go to Package Manager Console 
+6. Add-Migration MigrationName   -   Add-Migration AddCourse 
+7. Update-Database 
+
+
+
