@@ -7,6 +7,7 @@ namespace efdemo.Model
     class TrainingContext : DbContext 
     {
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Topic> Topics { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -17,7 +18,8 @@ namespace efdemo.Model
 
             // Connect to LocalDB database 
             optionsBuilder.UseSqlServer
-                (@"Data source=(localdb)\mssqllocaldb;Initial Catalog=msdb;Integrated Security=True");
+                (@"Data source=(localdb)\mssqllocaldb;Initial Catalog=msdb;Integrated Security=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseLazyLoadingProxies();
         }
     }
 }

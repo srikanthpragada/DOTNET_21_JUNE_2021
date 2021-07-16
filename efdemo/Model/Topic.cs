@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace efdemo.Model
 {
-    class Topic
+    public class Topic
     {
         public int Id { get; set; }
 
@@ -12,6 +12,6 @@ namespace efdemo.Model
         public int Hours { get; set; }
 
         // Navigation Property
-        public Course Course { get; set; }
+        public virtual Course Course { get; set; }
     }
 }

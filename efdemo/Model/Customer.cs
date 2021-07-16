@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace efdemo.Model
 {
-    class Customer
+    public class Customer
     {
         public int Id { get; set; }
         public string Fullname { get; set; }
