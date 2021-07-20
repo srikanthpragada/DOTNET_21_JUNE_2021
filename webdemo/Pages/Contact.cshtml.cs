@@ -9,8 +9,14 @@ namespace webdemo.Pages
 {
     public class ContactModel : PageModel
     {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Mobile { get; set; }
         public void OnGet()
         {
+            Name = "Srikanth Pragada";
+            Email = "srikanthpragada@gmail.com";
+            Mobile = "9059057000";
         }
     }
 }

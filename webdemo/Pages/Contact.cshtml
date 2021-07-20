@@ -4,4 +4,26 @@
     Layout = null; 
 }
 
+<style>
+    body {font-family :Calibri;font-size:12pt;}
+    .heading { background-color:gray; font-weight : bold}
+   
+</style>
+
 <h1>Contact Info</h1>
+
+<table>
+    <tr>
+        <td class="heading">Fullname</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td class="heading">Email Address</td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td class="heading">Mobile Number</td>
+        <td>@Model.Mobile</td>
+    </tr>
+
+</table>
