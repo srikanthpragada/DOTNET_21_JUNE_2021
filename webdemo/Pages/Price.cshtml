@@ -1,0 +1,22 @@
+﻿@page
+@model webdemo.Pages.PriceModel
+@{
+    Layout = null;
+}
+
+<h2>Price Calculator</h2>
+
+<form>
+    Price <br />
+    <input type="number" name="price" required />
+    <p></p>
+    Discount % <br />
+    <input type="number" name="discount" required />
+    <p></p>
+    <input type="submit" value="Calculate" />
+</form>
+
+@if (Model.NetPrice > 0)
+{
+   <h3>Net Price : @Model.NetPrice</h3>
+}

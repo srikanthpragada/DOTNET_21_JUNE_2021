@@ -7,13 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace webdemo.Pages
 {
+
     public class TableModel : PageModel
     {
         [FromQuery]
         public int Number { get; set; }
-        public void OnGet( )
+
+        [FromQuery]
+        public int Length { get; set; }
+        public void OnGet()
         {
-            
+            if (Length == 0)
+                Length = 10;
         }
     }
 }

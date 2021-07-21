@@ -1,0 +1,22 @@
+﻿@page
+@model webdemo.Pages.InterestModel
+@{
+    Layout = null;
+}
+
+<h2>Interest Calculation</h2>
+<form method="post">
+    Deposit Amount <br />
+    <input asp-for="Amount" />
+    <p></p>
+    Interest Rate % <br />
+    <input asp-for="Rate" />
+    <p></p>
+    <input type="submit" value="Calculate" />
+</form>
+
+
+@if (Model.Interest > 0)
+{
+    <h3>Interest : @Model.Interest</h3>
+}

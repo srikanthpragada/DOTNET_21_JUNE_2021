@@ -10,9 +10,16 @@ namespace webdemo.Pages
     public class WishModel : PageModel
     {
         public string Message { get; set; }
-        public void OnGet()
+        public void OnGet(string name)
         {
-            var name = Request.Query["name"];
+            //var name = Request.Query["name"];
+
+            //if (name.Count == 0)  // No parameter called name is passed 
+            //    name = "Guest";
+
+            if (name == null)
+                name = "Guest";
+
             var hours = DateTime.Now.Hour;
             if (hours < 12)
                 Message = "Good Morning";
