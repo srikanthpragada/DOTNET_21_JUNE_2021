@@ -8,9 +8,11 @@
 <form method="post">
     Deposit Amount <br />
     <input asp-for="Amount" />
+    <span asp-validation-for="Amount" style="color:red"></span>
     <p></p>
     Interest Rate % <br />
     <input asp-for="Rate" />
+    <span asp-validation-for="Rate" style="color:red"></span>
     <p></p>
     <input type="submit" value="Calculate" />
 </form>

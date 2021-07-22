@@ -1,0 +1,28 @@
+﻿@page
+@model webdemo.Pages.RegisterModel
+@{
+    Layout = null;
+}
+
+<h2>Registration</h2>
+<form method="post">
+    Email Address <br />
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <p></p>
+    Password <br />
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <p></p>
+    Confirm Password <br />
+    <input asp-for="ConfirmPassword" />
+    <span asp-validation-for="ConfirmPassword"></span>
+    <p></p>
+    <input type="submit" value="Register" />
+</form>
+
+<h4>@Model.Message</h4>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
