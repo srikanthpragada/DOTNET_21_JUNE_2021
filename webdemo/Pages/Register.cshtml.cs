@@ -26,6 +26,7 @@ namespace webdemo.Pages
         [StringLength(10, MinimumLength = 6, ErrorMessage = "Invalid Password!")]
         [Required]
         [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage ="Passwords do not match!")]
         public string ConfirmPassword { get; set; }
 
         public string Message { get; set; }
