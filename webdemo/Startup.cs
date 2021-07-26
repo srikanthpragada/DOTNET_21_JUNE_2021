@@ -22,7 +22,16 @@ namespace webdemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Needed for sessions 
+            services.AddSession(options =>
+               {
+                   //options.IdleTimeout = TimeSpan.FromSeconds(10);
+                   //options.Cookie.HttpOnly = true;
+                   //options.Cookie.IsEssential = true;
+               }
+            );
             services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +49,8 @@ namespace webdemo
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();  // using Sessions
 
             app.UseAuthorization();
 

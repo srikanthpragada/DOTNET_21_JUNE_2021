@@ -14,11 +14,12 @@ namespace webdemo.Pages
         public IActionResult OnGet(String City)
         {
             if (City == null)
-               return Page();
+               return Page();  // Display current page again
 
             // Store city as cookie
             CookieOptions options = new CookieOptions();
             options.Expires = DateTime.Now.AddDays(10);
+
             Response.Cookies.Append("city",City, options);
             return RedirectToPage("Movies");
        }

@@ -1,0 +1,23 @@
+﻿@page
+@model webdemo.Pages.LanguagesModel
+@{
+}
+
+<h1>Languages</h1>
+
+<form>
+    Language <input type="text" name="lang" />
+    <input type="submit" value="Add" />
+</form>
+
+@if (Model.Languages != null)
+{
+    <h2>Known Languages</h2>
+
+    <ul>
+        @foreach (var lang in Model.Languages.Split(','))
+        {
+            <li>@lang</li>
+        }
+    </ul>
+}
