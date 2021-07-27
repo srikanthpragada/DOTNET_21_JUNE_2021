@@ -1,0 +1,47 @@
+﻿@page
+@model Expenses.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" asp-for="Expenditure.Id" />
+            <div class="form-group">
+                <label asp-for="Expenditure.Title" class="control-label"></label>
+                <input asp-for="Expenditure.Title" class="form-control" />
+                <span asp-validation-for="Expenditure.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenditure.Amount" class="control-label"></label>
+                <input asp-for="Expenditure.Amount" class="form-control" />
+                <span asp-validation-for="Expenditure.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenditure.SpentOn" class="control-label"></label>
+                <input asp-for="Expenditure.SpentOn" class="form-control" />
+                <span asp-validation-for="Expenditure.SpentOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenditure.Category" class="control-label"></label>
+                <select asp-for="Expenditure.Category" class="form-control">
+                    <option value="1">Education</option>
+                    <option value="2">Entertainment</option>
+                    <option value="3">Food</option>
+                    <option value="4">Others</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

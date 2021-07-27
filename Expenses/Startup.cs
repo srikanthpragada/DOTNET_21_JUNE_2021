@@ -7,8 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Expenses.Models;
+using Microsoft.AspNetCore.Identity;
 
-namespace webdemo
+namespace Expenses
 {
     public class Startup
     {
@@ -22,16 +24,20 @@ namespace webdemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Needed for sessions 
-            services.AddSession(options =>
-               {
-                   //options.IdleTimeout = TimeSpan.FromSeconds(10);
-                   //options.Cookie.HttpOnly = true;
-                   //options.Cookie.IsEssential = true;
-               }
-            );
-            services.AddRazorPages();
+            services.AddRazorPages(); 
+            services.AddDbContext<MyDbContext>();
 
+            // For EF and Authentication 
+            services.AddDefaultIdentity<IdentityUser>(options =>
+               {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 1;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+               }
+           )
+           .AddEntityFrameworkStores<MyDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +52,10 @@ namespace webdemo
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseStaticFiles();  // Allows wwwroot files to be rendered 
-
+            app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseSession();  // using Sessions
-
+            app.UseAuthentication();  // For login
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
