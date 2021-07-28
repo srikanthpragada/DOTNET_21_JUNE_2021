@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using webdemo.Model;
 
 namespace webdemo
 {
@@ -31,7 +32,7 @@ namespace webdemo
                }
             );
             services.AddRazorPages();
-
+            services.AddDbContext<InventoryContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

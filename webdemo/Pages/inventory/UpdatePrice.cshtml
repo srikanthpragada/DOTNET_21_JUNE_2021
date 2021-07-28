@@ -1,0 +1,23 @@
+﻿@page
+@model webdemo.Pages.inventory.UpdatePriceModel
+@{
+    Layout = null;
+   
+}
+
+<h2>Update Product Price</h2>
+
+<a asp-page="ListProducts">List Products</a>
+<p></p>
+
+<form method="post">
+    Product Id <br />
+    <input asp-for="Id" />
+    <p></p>
+    New Price <br />
+    <input asp-for="Price" />
+    <p></p>
+    <input type="submit" value="Submit" />
+</form>
+
+<h3>@Model.Message</h3>

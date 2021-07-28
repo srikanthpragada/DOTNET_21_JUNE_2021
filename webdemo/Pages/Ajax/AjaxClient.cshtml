@@ -22,15 +22,10 @@
         var output = ""
         $.get("/Ajax/Contacts", null,
             function (contacts) {
-                // console.log(contacts)
+                //console.log(contacts)
                 for (i = 0; i < contacts.length; i++)
                     output += "<li>" + contacts[i].name + "," + contacts[i].email + "</li>";
-
-                //contacts.forEach(
-                //    function (c) {
-                //        output += "<li>" + c.name + "," + c.email + "</li>";
-                //    }
-                //)
+                
                 $("#contacts").html(output);
             }
         );

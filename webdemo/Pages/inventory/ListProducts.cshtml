@@ -1,0 +1,27 @@
+﻿@page
+@model webdemo.Pages.inventory.ListProductsModel
+@{
+    Layout = null;
+}
+
+<h2>Products</h2>
+
+<table border="1" style="width:100%">
+    <tr style="color:white;background-color:navy">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qoh</th>
+        <th>Category</th>
+    </tr>
+    @foreach (var p in Model.Products)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Name</td>
+            <td>@p.Price</td>
+            <td>@p.Qoh</td>
+            <td>@p.Category</td>
+        </tr>
+    }
+</table>
