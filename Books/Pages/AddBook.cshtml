@@ -1,0 +1,57 @@
+﻿@page
+@model Books.Pages.AddBookModel
+@{
+}
+
+
+@{
+    ViewData["Title"] = "Add Book";
+}
+<h1>Add Book</h1>
+
+<form method="post">
+    <label asp-for="Book.Title"></label>
+    <br />
+    <input asp-for="Book.Title" />
+    <span asp-validation-for="Book.Title" class="text-danger"></span>
+    <p></p>
+
+    <label asp-for="Book.Author"></label>
+    <br />
+    <input asp-for="Book.Author" />
+    <span asp-validation-for="Book.Author" class="text-danger"></span>
+    <p></p>
+
+    <label asp-for="Book.NoPages"></label>
+    <br />
+    <input asp-for="Book.NoPages" />
+    <span asp-validation-for="Book.NoPages" class="text-danger"></span>
+
+    <p></p>
+    <label asp-for="Book.Rating"></label>
+    <select asp-for="Book.Rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <p></p>
+
+    <label asp-for="Book.Remarks"></label>
+    <br />
+    <input asp-for="Book.Remarks" />
+    <span asp-validation-for="Book.Remarks" class="text-danger"></span>
+    <p></p>
+
+    <input type="submit" value="Add Book" class="btn btn-primary" />
+</form>
+<p></p>
+
+<h6>@Model.Message</h6>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

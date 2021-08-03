@@ -11,9 +11,11 @@ namespace Books.Model
         public int Id { get; set; }
 
         [MaxLength(50)]
+        [Required]
         public string Title { get; set; }
 
         [MaxLength(50)]
+        [Required]
         public string Author { get; set; }
 
         public int NoPages { get; set; }
