@@ -1,0 +1,40 @@
+﻿@page
+@model Books.Pages.BookInfoModel
+@{
+}
+<script>
+    function getBookInfo() {
+        $("#details").hide();
+        $.get("/GetBook/" + $("#bookid").val(), null,
+            function (book) {
+                console.log(book)
+                if (book == null)
+                    alert("Sorry! Book Not Found!");
+                else {
+                    $("#details").show()
+                    $("#title").text(book.title);
+                    $("#author").text(book.author);
+                    $("#noPages").text(book.noPages);
+                    $("#remarks").text(book.remarks);
+                    $("#rating").text(book.rating);
+                }
+            }
+        );
+    }
+</script>
+
+<h2>Book Information</h2>
+Book Id : <input id="bookid"/>
+<button onclick="getBookInfo()">Details</button>
+<p></p>
+<div id="details" style="display:none">
+    Title : <span id="title"></span>
+    <br />
+    Author : <span id="author"></span>
+    <br />
+    No. Pages : <span id="noPages"></span>
+    <br />
+    Rating : <span id="rating"></span>
+    <br />
+    Remarks :  <span id="remarks"></span>
+</div>
