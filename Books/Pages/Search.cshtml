@@ -1,16 +1,25 @@
 ﻿@page
 @model Books.Pages.SearchModel
 @{
-}
+} 
 
-<h2>Search Book</h2>
+<h2>Search Books</h2>
 
-<form>
+<form method="post">
     Title : <input asp-for="Title" />
     Author : <input asp-for="Author" />
     <input type="submit" value="Search" />
-    <p></p>
-    <span asp-validation-for="Title" class="text-danger"></span>
-    <span asp-validation-for="Author" class="text-danger"></span>
-    <p></p>
 </form>
+<p></p>
+
+@if (Model.Books != null)
+{
+    if (Model.Books.Count > 0)
+    {
+        <partial name="_ListBooks" model="Model.Books" />
+    }
+    else
+    {
+        <h4>Sorry! No Books Found!</h4>
+    }
+}
