@@ -10,11 +10,8 @@ namespace Books.Pages
 {
     public class GetBookModel : PageModel
     {
-       
 
         private CatalogContext Context;
-        public int Count { get; set; }
-
         public GetBookModel(CatalogContext ctx)
         {
             Context = ctx;
@@ -23,10 +20,7 @@ namespace Books.Pages
         public IActionResult OnGet(int id)
         {   
             var book = Context.Books.Find(id);
-            if (book == null)
-                return new JsonResult(null);
-            else
-                return new JsonResult(book);
+            return new JsonResult(book);
         }
     }
 }
