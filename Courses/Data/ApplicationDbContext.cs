@@ -8,9 +8,11 @@ namespace Courses.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public DbSet<Models.Course> Courses { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
     }
 }

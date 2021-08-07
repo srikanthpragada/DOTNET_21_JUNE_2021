@@ -63,7 +63,7 @@ namespace Courses
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Courses}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
