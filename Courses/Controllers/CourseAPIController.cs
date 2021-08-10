@@ -70,7 +70,7 @@ namespace Courses.Controllers
                 }
             }
 
-            return NoContent();
+            return NoContent();  // 204 Status code 
         }
 
         // POST: api/CourseAPI
